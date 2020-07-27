@@ -1,0 +1,56 @@
+{
+   "pydbr_output": {
+      "notebook_output": {
+         "result": "{\"was_successful\": true, \"num_errors\": 0, \"num_failures\": 0, \"num_skipped\": 0, \"num_successes\": 1, \"start_time\": \"2020-07-25T19:43:48.178042\", \"end_time\": \"2020-07-25T19:43:48.180121\", \"execution_time\": 0.002079010009765625, \"run_output\": \"\\nRunning tests...\\n----------------------------------------------------------------------\\n  test_this (__main__.TestSomething) ... ok (0.001s)\\n\\n----------------------------------------------------------------------\\nRan 1 test in 0.001s\\n\\nOK\\n\\nGenerating XML reports...\\n\", \"xml_report\": \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<testsuites>\\n\\t<testsuite errors=\\\"0\\\" failures=\\\"0\\\" file=\\\".py\\\" name=\\\"TestSomething-20200725194348\\\" skipped=\\\"0\\\" tests=\\\"1\\\" time=\\\"0.001\\\" timestamp=\\\"2020-07-25T19:43:48\\\">\\n\\t\\t<testcase classname=\\\"TestSomething\\\" file=\\\"/local_disk0/tmp/1595701046311-0/PythonShell.py\\\" line=\\\"3\\\" name=\\\"test_this\\\" time=\\\"0.001\\\" timestamp=\\\"2020-07-25T19:43:48\\\">\\n\\t\\t\\t<system-out>\\n<![CDATA[]]>\\t\\t\\t</system-out>\\n\\t\\t\\t<system-err>\\n<![CDATA[]]>\\t\\t\\t</system-err>\\n\\t\\t</testcase>\\n\\t</testsuite>\\n</testsuites>\\n\"}",
+         "truncated": false
+      },
+      "error": null,
+      "metadata": {
+         "job_id": 65,
+         "run_id": 65,
+         "creator_user_name": "ivan.georgiev@gmail.com",
+         "number_in_job": 1,
+         "original_attempt_run_id": null,
+         "state": {
+            "life_cycle_state": "TERMINATED",
+            "result_state": "SUCCESS",
+            "state_message": ""
+         },
+         "schedule": null,
+         "task": {
+            "notebook_task": {
+               "notebook_path": "/pytest-databricks-fixtures/Test_Something"
+            }
+         },
+         "cluster_spec": {
+            "existing_cluster_id": "0725-075316-ultra357"
+         },
+         "cluster_instance": {
+            "cluster_id": "0725-075316-ultra357",
+            "spark_context_id": "5492755055223556456"
+         },
+         "overriding_parameters": null,
+         "start_time": 1595706219882,
+         "setup_duration": 1000,
+         "execution_duration": 10000,
+         "cleanup_duration": 0,
+         "trigger": null,
+         "run_name": "TEST-Test_Something-20200725194339189849",
+         "run_page_url": "https://westeurope.azuredatabricks.net/?o=8513315150678991#job/65/run/1",
+         "run_type": "SUBMIT_RUN"
+      }
+   },
+   "run_id": 65,
+   "run_page_url": "https://westeurope.azuredatabricks.net/?o=8513315150678991#job/65/run/1",
+   "num_errors": 0,
+   "num_failures": 0,
+   "num_skipped": 0,
+   "num_successes": 1,
+   "start_time": "2020-07-25T19:43:48.178042",
+   "end_time": "2020-07-25T19:43:48.180121",
+   "execution_time": 0.002079010009765625,
+   "was_successful": true,
+   "xml_report": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<testsuites>\n\t<testsuite errors=\"0\" failures=\"0\" file=\".py\" name=\"TestSomething-20200725194348\" skipped=\"0\" tests=\"1\" time=\"0.001\" timestamp=\"2020-07-25T19:43:48\">\n\t\t<testcase classname=\"TestSomething\" file=\"/local_disk0/tmp/1595701046311-0/PythonShell.py\" line=\"3\" name=\"test_this\" time=\"0.001\" timestamp=\"2020-07-25T19:43:48\">\n\t\t\t<system-out>\n<![CDATA[]]>\t\t\t</system-out>\n\t\t\t<system-err>\n<![CDATA[]]>\t\t\t</system-err>\n\t\t</testcase>\n\t</testsuite>\n</testsuites>\n",
+   "run_output": "\nRunning tests...\n----------------------------------------------------------------------\n  test_this (__main__.TestSomething) ... ok (0.001s)\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n\nGenerating XML reports...\n",
+   "exit_result": "{\"was_successful\": true, \"num_errors\": 0, \"num_failures\": 0, \"num_skipped\": 0, \"num_successes\": 1, \"start_time\": \"2020-07-25T19:43:48.178042\", \"end_time\": \"2020-07-25T19:43:48.180121\", \"execution_time\": 0.002079010009765625, \"run_output\": \"\\nRunning tests...\\n----------------------------------------------------------------------\\n  test_this (__main__.TestSomething) ... ok (0.001s)\\n\\n----------------------------------------------------------------------\\nRan 1 test in 0.001s\\n\\nOK\\n\\nGenerating XML reports...\\n\", \"xml_report\": \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<testsuites>\\n\\t<testsuite errors=\\\"0\\\" failures=\\\"0\\\" file=\\\".py\\\" name=\\\"TestSomething-20200725194348\\\" skipped=\\\"0\\\" tests=\\\"1\\\" time=\\\"0.001\\\" timestamp=\\\"2020-07-25T19:43:48\\\">\\n\\t\\t<testcase classname=\\\"TestSomething\\\" file=\\\"/local_disk0/tmp/1595701046311-0/PythonShell.py\\\" line=\\\"3\\\" name=\\\"test_this\\\" time=\\\"0.001\\\" timestamp=\\\"2020-07-25T19:43:48\\\">\\n\\t\\t\\t<system-out>\\n<![CDATA[]]>\\t\\t\\t</system-out>\\n\\t\\t\\t<system-err>\\n<![CDATA[]]>\\t\\t\\t</system-err>\\n\\t\\t</testcase>\\n\\t</testsuite>\\n</testsuites>\\n\"}"
+}
