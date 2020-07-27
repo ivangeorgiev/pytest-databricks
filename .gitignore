@@ -2,6 +2,7 @@ explore
 .dev
 .venv*/
 .vscode
+test-results/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

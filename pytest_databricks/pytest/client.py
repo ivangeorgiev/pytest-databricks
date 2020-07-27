@@ -49,10 +49,13 @@ class DatabricksTestClient:
     auto_save_notebook_output = False
     auto_save_exit_result = False
 
-    dir_xml_reports = '.'
-    dir_run_outputs = '.'
-    dir_notebook_outputs = '.'
-    dir_exit_results = '.'
+    dir_xml_reports = None
+    dir_run_outputs = None
+    dir_notebook_outputs = None
+    dir_exit_results = None
+
+    _auto_save: bool = False
+    _dir_auto_save: str = '.'
 
     last_run_result: TestExecutionResult = None
 
@@ -62,6 +65,26 @@ class DatabricksTestClient:
     @property
     def dbc(self):
         return self._dbc
+
+    @property
+    def auto_save(self) -> bool:
+        return (self.auto_save_exit_result and self.auto_save_notebooselfk_output and
+                self.auto_save_run_output and self.auto_save_xml_report)
+
+    @auto_save.setter
+    def auto_save(self, value):
+        self.auto_save_exit_result = value
+        self.auto_save_notebook_output = value
+        self.auto_save_run_output = value
+        self.auto_save_xml_report = value
+
+    @property
+    def dir_auto_save(self) -> str:
+        return self.dir_auto_save
+
+    @dir_auto_save.setter
+    def dir_auto_save(self, dir):
+        self._dir_auto_save = dir
 
     def log(self, message):
         print(message)
@@ -109,20 +132,23 @@ class DatabricksTestClient:
     def _write_xml_report(self):
         assert self.last_run_result is not None, "last_run_result is not set. Nothing to save."
         content = self.last_run_result.xml_report
-        self._write_result(content, self.dir_xml_reports, '.xml')
+        dir = self.dir_xml_reports or self._dir_auto_save
+        self._write_result(content, dir, '.xml')
 
     def _write_run_output(self):
         assert self.last_run_result is not None, "last_run_result is not set. Nothing to save."
         content = self.last_run_result.run_output
-        self._write_result(content, self.dir_run_outputs, '.txt')
+        dir = self.dir_run_outputs or self._dir_auto_save
+        self._write_result(content, dir, '.txt')
 
     def _write_notebook_output(self):
         assert self.last_run_result is not None, "last_run_result is not set. Nothing to save."
         content = self.dbc.jobs.runs.export(self.last_run_result.run_id).notebooks[0].content
-        self._write_result(content, self.dir_notebook_outputs, '.html')
+        dir = self.dir_notebook_outputs or self._dir_auto_save
+        self._write_result(content, dir, '.html')
 
     def _write_exit_result(self):
         assert self.last_run_result is not None, "last_run_result is not set. Nothing to save."
-        content = self.last_run_result.exit_result
         content = json.dumps(dataclasses.asdict(self.last_run_result), indent=3)
-        self._write_result(content, self.dir_exit_results, '.json')
+        dir = self.dir_exit_results or self._dir_auto_save
+        self._write_result(content, dir, '.json')
