@@ -51,6 +51,19 @@ def dbr_connection(pytestconfig):
     databricks_cluster_id = (pytestconfig.getoption('--databricks-cluster-id') or 
                              pytestconfig.getini('databricks-cluster-id') or 
                              os.environ.get(ENV_VAR_CLUSTER_ID, None))
+
+    if not databricks_token:
+        raise ValueError("Databricks Bearer Token not set. "
+                "You can use environment varialbe, command line option or "
+                "pytest.ini option to specify Databricks Bearer Token.")
+    if not databricks_cluster_id:
+        raise ValueError("Databricks Cluster ID not set. "
+                "You can use environment varialbe, command line option or "
+                "pytest.ini option to specify Databricks Cluster ID.")
+    if not databricks_url:
+        raise ValueError("Databricks URL not set. "
+                "You can use environment varialbe, command line option or "
+                "pytest.ini option to specify Databricks URL.")
     
     connection = pydbr.connect(
         bearer_token=databricks_token,
