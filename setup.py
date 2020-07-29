@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pytest-databricks",
-    version="0.0.6",
+    version="0.0.7",
     author="Ivan Georgiev",
     #author_email="ivan.georgiev",
     description="Pytest plugin for remote Databricks notebooks testing",
