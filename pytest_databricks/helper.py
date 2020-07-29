@@ -3,12 +3,14 @@ import sys
 import io
 import datetime
 import unittest
+import inspect
 
 def install_package(package):
+    """Install Python package with pip executed in subprocess."""
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-
 def run_unittest_suite(suite):
+    """Execute unittest suite and return run output."""
     try:
         import xmlrunner
     except ModuleNotFoundError:
@@ -36,3 +38,21 @@ def run_unittest_suite(suite):
         'xml_report': report_content,
     }
     return result
+
+
+def run_unittest_testcase(test_case:unittest.TestCase):
+    """Execute unittest TestCase and return run output."""
+    assert inspect.isclass(test_case), "test_case must be a class"
+    assert issubclass(test_case, unittest.TestCase), "test_case must be unittest.TestCase"
+    suite = unittest.TestLoader().loadTestsFromTestCase(test_case)
+    return run_unittest_suite(suite)
+
+def run_unittest(test):
+    """Execute unittest TestCase or TestSuite and return run output"""
+    if isinstance(test, unittest.TestSuite):
+        return run_unittest_suite(test)
+    elif inspect.isclass(test) and issubclass(test, unittest.TestCase):
+        return run_testcase(test)
+    else:
+        raise TypeError("test must be unittest TestCase or TestSuite")
+
