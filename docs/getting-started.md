@@ -1,16 +1,16 @@
 # Getting Started with pytest-databricks
 
-
+In this guide I will show you how to quickly get started with pytest-databricks package:
 
 1. Create test notebooks in Databricks
 2. Create pytest script to orchestrate tests
 3. Execute tests
 
-
+All sources for this guide are available in GitHub: https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/notebooks/Test-AssertEquals-DataFrames.py
 
 ## Create Test Notebooks in Databricks
 
-Here is an example [Databricks notebook](Test-AssertEquals-DataFrames.ipynb) defining Python `unittest.TestCase`. You can import it in your Databricks workspace from [Jupyter Notebook](Test-AssertEquals-DataFrames.ipynb) format or [Python source](Test-AssertEquals-DataFrames.py) format and start using it as a template.
+Here is an example [Databricks notebook](https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/notebooks/Test-AssertEquals-DataFrames.ipynb) defining Python `unittest.TestCase`. You can import it in your Databricks workspace from [Jupyter Notebook](https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/notebooks/Test-AssertEquals-DataFrames.ipynb) format or [Python source](https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/notebooks/Test-AssertEquals-DataFrames.py) format and start using it as a template.
 
 To make it more clear we will look into each command from the notebook.
 
@@ -94,14 +94,14 @@ For Windows command line users the second command is slightly different:
 
 ```
 python -m venv .venv
-source .venv\Scripts\activate.bat
+.venv\Scripts\activate.bat
 ```
 
 For PowerShell users:
 
 ```powershell
 python -m venv .venv
-source .venv/Scripts/activate.ps1
+.venv/Scripts/activate.ps1
 ```
 
 The first command will create a directory `.venv` which contains python virtual environment. The second line activates the environment for the command line (shell) session.
@@ -112,7 +112,7 @@ Inside the project directory create a `requirements.txt` text file:
 
 ```
 pydbr
-pytest
+pytest-databricks
 ```
 
 We use this file to install package dependencies in Python.
@@ -131,7 +131,7 @@ Create a directory `tests` inside the project directory and inside it create a `
 
 ```python
 def test_myapp_case1(dbr_client):
-    result = dbr_client.execute('Test-AssertEquals-DataFrames')
+    result = dbr_client.execute('/Test-AssertEquals-DataFrames')
     assert result.was_successful == True
 ```
 
@@ -148,6 +148,9 @@ To check if the unittest execution finished successfully, you check the `was_suc
 Inside `tests` directory create a `conftest.py` file:
 
 ```python
+import pytest
+import os
+
 @pytest.fixture(scope="session", autouse=True)
 def _conftest(dbr_client):
     dir_results = os.path.join(os.path.dirname(__file__), '..', 'test-results')
