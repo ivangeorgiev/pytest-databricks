@@ -21,3 +21,7 @@ def test_TestClient_execute(dbr_connection):
     # dbr_client.auto_save_exit_result = True
     result = dbr_client.execute('/pytest-databricks-fixtures/Test_Something')
     assert result.was_successful == True
+
+def test_myapp_case1(dbr_client):
+    result = dbr_client.execute('/pytest-databricks-examples/Test-AssertEquals-DataFrames')
+    assert result.was_successful == True
