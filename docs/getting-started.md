@@ -6,7 +6,7 @@ In this guide I will show you how to quickly get started with pytest-databricks 
 2. Create pytest script to orchestrate tests
 3. Execute tests
 
-All sources for this guide are available in GitHub: https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/notebooks/Test-AssertEquals-DataFrames.py
+All sources for this guide are available in GitHub: https://github.com/ivangeorgiev/pytest-databricks-example.
 
 ## Create Test Notebooks in Databricks
 
