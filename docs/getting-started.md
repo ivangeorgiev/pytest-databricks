@@ -108,7 +108,7 @@ The first command will create a directory `.venv` which contains python virtual 
 
 ### Step 2: Create requirements.txt
 
-Inside the project directory create a `requirements.txt` text file:
+Inside the project directory create a [requirements.txt](https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/requirements.txt) text file:
 
 ```
 pydbr
@@ -127,7 +127,7 @@ pip install -r requirements.txt
 
 ### Step 4: Create pytest script
 
-Create a directory `tests` inside the project directory and inside it create a `pytest` script. I will use the name `test_myapp.py`. You can use any name, just keep in mind that by default `pytest` looks for Python files which name begins with `test`.
+Create a directory `tests` inside the project directory and inside it create a `pytest` script. I will use the name [test_myapp.py](https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/tests/test_myapp.py). You can use any name, just keep in mind that by default `pytest` looks for Python files which name begins with `test`.
 
 ```python
 def test_myapp_case1(dbr_client):
@@ -145,7 +145,7 @@ To check if the unittest execution finished successfully, you check the `was_suc
 
 ### Step 5: Configure autosave for test output
 
-Inside `tests` directory create a `conftest.py` file:
+Inside `tests` directory create a [conftest.py](https://github.com/ivangeorgiev/pytest-databricks-example/blob/master/tests/conftest.py) file:
 
 ```python
 import pytest
