@@ -52,7 +52,7 @@ def run_unittest(test):
     if isinstance(test, unittest.TestSuite):
         return run_unittest_suite(test)
     elif inspect.isclass(test) and issubclass(test, unittest.TestCase):
-        return run_testcase(test)
+        return run_unittest_testcase(test)
     else:
         raise TypeError("test must be unittest TestCase or TestSuite")
 
